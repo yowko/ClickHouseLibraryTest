@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+
+  clickhouse:
+    image: clickhouse/clickhouse-server:23.11.3.23
+    ports:
+      - 8123:8123
+      - 9000:9000
+    environment:
+      - CLICKHOUSE_DB=test
+      - CLICKHOUSE_USER=yowko
+      - CLICKHOUSE_PASSWORD=pass.123
+      - CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT=1
+    ulimits:
+      nofile:
+        soft: 262144
+        hard: 262144
